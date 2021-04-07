@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -112,5 +113,13 @@ class StudentController extends Controller
     {
         $student->delete();
         return redirect()->route('home')->with('success', 'Data Siswa Baru berhasil di hapus');
+    }
+
+    public function pdf()
+    {
+        $students = Student::all();
+
+        $pdf = PDF::loadview('students.pdf', compact('students'));
+        return $pdf->stream();
     }
 }

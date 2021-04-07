@@ -11,6 +11,7 @@
             </div>
             @endif
             <h3>Data Siswa/i yang telah mendaftar</h3>
+            <a href="{{ route('student.pdf') }}" class="btn btn-sm btn-primary">Print</a>
                 <table class="table table-striped mt-3">
                     <thead>
                     <tr>
